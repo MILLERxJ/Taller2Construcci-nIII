@@ -5,10 +5,13 @@ let num4 = document.getElementById("numero4")
 let papa = document.querySelector(".resultadito")
 let texto1 = document.createElement("p")
 let texto2 = document.createElement("p")
+let texto3 = document.createElement("p")
 let arreglo = []
 let numeroMayor = 0
 let numeroMenor
+let final
 let mostrar = document.querySelector(".mostrar")
+let arregloFinal = []
 papa.addEventListener("click", function () {
     let numero1 = parseInt(num1.value)
     let numero2 = parseInt(num2.value)
@@ -35,4 +38,14 @@ papa.addEventListener("click", function () {
     texto2.appendChild(menorTexto);
     mostrar.insertAdjacentElement("afterbegin", texto2)
     mostrar.insertAdjacentElement("afterbegin", texto1)
+    console.log(numeroMayor + " Aqui")
+    for (let a = 0; a < arreglo.length; a++) {
+        if (numeroMayor == arreglo[a]) {
+            arreglo.splice(a, 1)
+
+        }
+    }
+    let finalTexto = document.createTextNode("El arreglo con el numero mayor eliminado es: " + arreglo)
+    texto3.appendChild(finalTexto)
+    mostrar.insertAdjacentElement("afterbegin", texto3)
 })
